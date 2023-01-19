@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">PICKLE</string>
+
+    <string-array name="spinner_color">
+        <item>흰색</item>
+        <item>검정</item>
+    </string-array>
+
+    <string-array name="spinner_size">
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+    </string-array>
+</resources>
