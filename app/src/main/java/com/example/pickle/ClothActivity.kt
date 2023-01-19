@@ -1,6 +1,8 @@
 package com.example.pickle
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.pickle.databinding.ActivityClothBinding
@@ -29,6 +31,22 @@ class ClothActivity : AppCompatActivity() {
             //bottomSheet.setContentView(R.layout.fragment_bottom_sheet)
             bottomSheet.show(supportFragmentManager, bottomSheet.tag)
         }
+
+//        var intent = Intent()
+//        Log.d("get", intent.getStringExtra("storeName").toString())
+//        Log.d("check", intent.hasExtra("storeName").toString())
+//        viewBinding.tvStoreName2.text = intent.getStringExtra("storeName").toString()
+//        viewBinding.tvClothName2.text = intent.getStringExtra("clothName").toString()
+//        viewBinding.tvClothPrice2.text = intent.getStringExtra("clothPrice").toString()
+
+        val extras = intent.extras
+        val storeName = extras!!["storeName"] as String
+        val clothName = extras!!["clothName"] as String
+        val clothPrice = extras!!["clothPrice"] as String
+
+        viewBinding.tvStoreName2.text = storeName
+        viewBinding.tvClothName2.text = clothName
+        viewBinding.tvClothPrice2.text = clothPrice
     }
 
     private fun getImageList(): ArrayList<Int> {

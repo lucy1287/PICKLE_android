@@ -1,10 +1,13 @@
 package com.example.pickle
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.pickle.databinding.ActivityPickupBinding
 import com.example.pickle.databinding.ActivityStoreBinding
+
 
 class StoreActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityStoreBinding
@@ -24,9 +27,28 @@ class StoreActivity : AppCompatActivity() {
             add(Data("매장1", "옷5", "10000"))
         }
 
-        val dataRVadapter = DataRVAdapter(dataList)
+        val dataRVadapter = DataRVAdapter(dataList, applicationContext)
 
         viewBinding.rvData.adapter = dataRVadapter
         viewBinding.rvData.layoutManager = GridLayoutManager(applicationContext, 2)
+
+        viewBinding.rvData.run {
+            adapter = dataRVadapter
+            val spanCount = 2
+            val space = 30
+            addItemDecoration(GridSpaceItemDecoration(spanCount, space))
+        }
+
+        dataRVadapter.setItemClickListener(object: DataRVAdapter.OnItemClickListener{
+            override fun onClick(v: View, position: Int) {
+                // 클릭 시 이벤트 작성
+                val intent = Intent(applicationContext, ClothActivity::class.java)
+                intent.putExtra("storeName", dataList[position].store)
+                Log.d("intent", dataList[position].store)
+                intent.putExtra("clothName", dataList[position].cloth)
+                intent.putExtra("clothPrice", dataList[position].price)
+                startActivity(intent)
+            }
+        })
     }
 }

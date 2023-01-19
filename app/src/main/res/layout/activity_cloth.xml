@@ -36,17 +36,20 @@
         app:layout_constraintTop_toBottomOf="@+id/framelayout">
         
         <TextView
+            android:id="@+id/tv_store_name2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="매장명"
             android:textSize="18sp"/>
         <TextView
+            android:id="@+id/tv_cloth_name2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="옷 이름"
             android:textSize="20sp"
             android:textStyle="bold"/>
         <TextView
+            android:id="@+id/tv_cloth_price2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="50,000원"

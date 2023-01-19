@@ -26,6 +26,10 @@
             android:name=".PickupActivity"
             android:exported="false">
         </activity>
+        <activity
+            android:name=".ClothActivity"
+            android:exported="false">
+        </activity>
     </application>
 
 </manifest>
